@@ -1,0 +1,169 @@
+<div align="center">
+    <table class="table table-striped" *ngIf='studentje'>
+        <tr>
+            <td>Sifra predmeta:</td>
+        </tr>
+        <div *ngIf='studentje'>
+            1. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <ng-container *ngIf='(p.semestar/2===0.5) '>
+                    <td>
+                        <p  hidden #box>{{p.sifra}}</p>
+                        <a href="predmet" (click)='setpred(p)'>{{p.sifra}} </a> 
+                    </td>
+                </ng-container>
+            </tr>
+            2. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <td *ngIf='p.semestar%2==0 && p.semestar/2==1'>
+                    <p  hidden #box>{{p.sifra}}</p>
+                    <a href="predmet" (click)='setpred(p)'>{{p.sifra}} </a> 
+                </td>
+            </tr>
+            3. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <ng-container *ngIf='(p.semestar/2===1.5) '>
+                    <td>
+                        <p  hidden #box>{{p.sifra}}</p>
+                        <a href="predmet" (click)='setpred(p)'>{{p.sifra}} </a>  
+                    </td>
+                </ng-container>
+            </tr>
+            4. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <td *ngIf='p.semestar%2==0 && p.semestar/2==2'>
+                    <p  hidden #box>{{p.sifra}}</p>
+                    <a href="predmet" (click)='setpred(p)'>{{p.sifra}} </a>  
+                </td>
+            </tr>
+            5. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <ng-container *ngIf='(p.semestar/2===2.5) '>
+                    <td>
+                        <p  hidden #box>{{p.sifra}}</p>
+                        <a href="predmet" (click)='setpred(p)'>{{p.sifra}} </a>  
+                    </td>
+                </ng-container>
+            </tr>
+            6. semestar
+            <tr *ngFor='let p of predmeti'>
+                <div *ngIf='p.semestar%2==0 && p.semestar/2==3'>
+                    
+                    <td > 
+                        <p  hidden #box>{{p.sifra}}</p>                      
+                        <a href="predmet" (click)='setpred(p)'>{{p.sifra}} </a> 
+                    </td>
+                </div>
+                
+            </tr>
+            7. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <ng-container *ngIf='(p.semestar/2===3.5) '>
+                    <td>
+                        <p  hidden #box>{{p.sifra}}</p>
+                        <a href="predmet" (click)='setpred(p)'>{{p.sifra}} </a>  
+                    </td>
+                </ng-container>
+            </tr>
+            8. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <td *ngIf='p.semestar%2==0 && p.semestar/2==4'>
+                    <p  hidden #box>{{p.sifra}}</p>
+                    <a href="predmet" (click)='setpred(p)'>{{p.sifra}} </a> 
+                </td>
+            </tr>
+
+        </div>
+    </table>
+
+    <br>
+    <table class="table table-striped" *ngIf='nereg || !studentje'>
+        <tr>
+            <td>Sifra predmeta:</td>
+        </tr>
+        <div *ngIf='nereg  || !studentje'>
+            1. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <ng-container *ngIf='(p.semestar/2===0.5) '>
+                    <td>
+                        
+                        {{p.sifra}}
+                    </td>
+                </ng-container>
+            </tr>
+            2. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <td *ngIf='p.semestar%2==0 && p.semestar/2==1'>
+                    
+                    {{p.sifra}}
+                </td>
+            </tr>
+            3. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <ng-container *ngIf='(p.semestar/2===1.5) '>
+                    <td>
+                        
+                        {{p.sifra}}
+                    </td>
+                </ng-container>
+            </tr>
+            4. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <td *ngIf='p.semestar%2==0 && p.semestar/2==2'>
+                    
+                    {{p.sifra}}
+                </td>
+            </tr>
+            5. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <ng-container *ngIf='(p.semestar/2===2.5) '>
+                    <td>
+                        {{p.sifra}}
+                    </td>
+                </ng-container>
+            </tr>
+            6. semestar
+            <tr *ngFor='let p of predmeti'>
+                <div *ngIf='p.semestar%2==0 && p.semestar/2==3'>
+                    
+                    <td >                       
+                        {{p.sifra}}
+                    </td>
+                </div>
+                
+            </tr>
+            7. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <ng-container *ngIf='(p.semestar/2===3.5) '>
+                    <td>
+                        
+                        {{p.sifra}}
+                    </td>
+                </ng-container>
+            </tr>
+            8. semestar
+            <tr *ngFor='let p of predmeti'>
+                
+                <td *ngIf='p.semestar%2==0 && p.semestar/2==4'>
+                    
+                    {{p.sifra}}
+                </td>
+            </tr>
+
+        </div>
+    </table>
+
+</div>

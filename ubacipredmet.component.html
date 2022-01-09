@@ -1,0 +1,91 @@
+<h3>Dodavanje predmeta u bazu</h3>
+
+<div>
+    <table>
+        <tr>
+            <td>
+                Sifra:
+            </td>
+            <td>
+                <input type="text" [(ngModel)]='sifra'>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Ishod:
+            </td>
+            <td>
+                <input type="text" [(ngModel)]='ishod'>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cilj:
+            </td>
+            <td>
+                <input type="text" [(ngModel)]='cilj'>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ESPB:
+            </td>
+            <td>
+                <input type="number" [(ngModel)]='espb'>
+            </td>
+        </tr>
+        <tr>
+            <td>Tip:</td>
+            <td>
+                <select [(ngModel)]='tip'>
+                    <option value="obavezan">Obavezan</option>
+                    <option value="izborni">Izborni</option>
+                    
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Font Casova:
+            </td>
+            <td>
+                <input type="number" [(ngModel)]='font'>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Godina:
+            </td>
+            <td>
+                <input type="number" [(ngModel)]='godina'>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Semestar:
+            </td>
+            <td>
+                <input type="number" [(ngModel)]='semestar'>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Smer:
+            </td>
+            <td>
+                <input type="text" [(ngModel)]='smer'>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Laboratorija:
+            </td>
+            <td>
+                <input type="text" [(ngModel)]='laboratorija'>
+            </td>
+        </tr>
+        <tr>
+            <button (click)='ubaci()'>Ubaci</button>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,69 @@
+<div align="center">
+    <h2>Obavestenja:</h2>
+    <table>
+        <tr>
+            <td>
+                Naslov:
+            </td>
+            <td>
+                Tekst:
+            </td>
+            <td>
+                Datum:
+            </td>
+            <td>Materijali:</td>
+        </tr>
+        <tr *ngFor='let o of ispis'>
+            <td *ngIf='dan - (o.datum[8]*10+o.datum[9]) < 7' style="background-color: rgb(95, 95, 204);">
+                {{o.naslov}}
+            </td>
+            <td *ngIf='dan - (o.datum[8]*10+o.datum[9]) > 7' >
+                {{o.naslov}}
+            </td>
+            <td>{{o.tekst}}</td>
+            <td>{{o.datum}}</td>
+            <!-- <td ngFor*='let f od o.fajl'>
+                {{f.naziv}}
+            </td> -->
+            <td *ngFor='let t of o.fajl'>
+                {{t.naziv}}
+            </td>
+            
+        </tr>
+
+
+
+
+
+    </table>
+
+
+
+</div>
+
+
+
+<div align="center">
+    
+
+
+    <h3>Spiskovi:</h3>
+    <table>
+        <tr>
+            <td>Naziv:</td>
+            <td>Mesto:</td>
+        </tr>
+        <tr *ngFor='let p of predmet.spiskovi'>
+            <td  >
+                {{p.naziv}}
+            </td>
+            <td>{{p.mesto}}</td>
+            <td>
+                <input type="file"  (change)="createFormData($event)">
+            </td>
+            <td *ngIf='p.aktivan'>
+                <button (click)='prijava(p.naziv)'>Prijavi se</button>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,131 @@
+<p>admin works!</p>
+
+
+<label >Izaberite opciju:</label><br />
+    <select [(ngModel)]="opcija" (change)="onChange($event)" >
+       <option  value="plan">Plan angazovanja</option>
+       <option  value="brisanje">Brisanje korisnika</option>
+       <option  value="registracija">Registracija korisnika</option>
+       <option  value="csv">Citanje iz csv</option>
+       <option  value="obav">Dodavanje obavestenja</option>
+    </select>
+<br>
+
+<div *ngIf='pisi'>
+<label >Predmeti:</label><br />
+    <select [(ngModel)]="predme">
+       <option *ngFor="let p of predmeti" [value]="p.sifra">{{p.sifra}}</option>
+    </select>
+<br>
+
+    <label >Profesori:</label><br />
+    <select [(ngModel)]="profesor">
+       <option *ngFor="let p of profesori" [value]="p.kor_ime">{{p.kor_ime}}</option>
+    </select>
+
+    <br>
+
+    <button (click)='dodaj()'>Dodaj</button>
+
+    <br>
+
+    <label >Studenti:</label><br />
+    <select [(ngModel)]="student">
+       <option *ngFor="let s of studenti" [value]="s.kor_ime">{{s.kor_ime}}</option>
+    </select>
+
+    <br>
+
+    <button (click)='dodaj2()'>Dodaj</button>
+
+
+
+</div>
+
+
+<div *ngIf='brisi'>
+
+   <table>
+      <tr>
+         <td>
+            Korisnicko ime:
+         </td>
+         <td>
+            Ime:
+         </td>
+         <td>
+           Prezime:
+         </td>
+      </tr>
+      <tr *ngFor='let p of profesori'>
+         <td>
+            {{p.kor_ime}}
+         </td>
+         <p  hidden #box>{{p.kor_ime}}</p>
+         <td>
+            {{p.ime}}
+         </td>
+         <td>
+            {{p.prezime}}
+         </td>
+         <td>
+            <button (click)='brisizap(box.textContent)'>Brisi</button>
+         </td>
+
+
+      </tr>
+      <tr *ngFor='let p of studenti'>
+         <td>
+            {{p.kor_ime}}
+         </td>
+         <p  hidden #box>{{p.kor_ime}}</p>
+         <td>
+            {{p.ime}}
+         </td>
+         <td>
+            {{p.prezime}}
+         </td>
+         <td>
+            <button (click)='brisistu(box.textContent)'>Brisi</button>
+         </td>
+
+
+      </tr>
+
+
+   </table>
+
+
+
+</div>
+
+
+<div *ngIf='registruj'>
+
+   <label >Izaberite opciju:</label><br />
+    <select [(ngModel)]="reg" (change)="onChange($event)" >
+       <option  value="zaposleni">Zaposleni</option>
+       <option  value="student">Student</option>
+    </select>
+   
+    <div *ngIf='reg=="zaposleni"'>
+      <app-registracijazaposlenih></app-registracijazaposlenih>
+    </div>
+    <div *ngIf='reg=="student"'>
+      <app-registracija></app-registracija>
+    </div>
+   
+   
+
+
+</div>
+
+
+<div *ngIf='cvs'>
+   <app-admin-csv></app-admin-csv>
+</div>
+
+<div *ngIf='obavestenje'>
+   <app-dodavanje-obavestenja></app-dodavanje-obavestenja>
+</div>
+

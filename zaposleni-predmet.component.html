@@ -1,0 +1,475 @@
+
+
+<div align='center'>
+<label >Predmeti:</label><br />
+    <select [(ngModel)]="predme" (change)="cl()">
+       <option *ngFor="let p of zap.predmeti" [value]="p.sifra">{{p.sifra}}</option>
+    </select>
+<br>
+</div>
+<div  align='center' *ngIf='predme'>
+    
+<br>
+<table>
+    <tr>
+        <td>
+            Ishod:
+        </td>
+        <td>
+            <input type="text" value="{{pr.ishod}}">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Cilj:
+        </td>
+        <td>
+            <input type="text" value="{{pr.cilj}}">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Espb:
+        </td>
+        <td>
+            <input type="text" value="{{pr.espb}}">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Sifra:
+        </td>
+        <td>
+            <input type="text" value="{{pr.sifra}}">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Tip:
+        </td>
+        <td>
+            <input type="text" value="{{pr.tip}}">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Font casova:
+        </td>
+        <td>
+            <input type="text" value="{{pr.font}}">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Komentari:
+        </td>
+        <td>
+            <input type="text" value="{{pr.komentari}}">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Godina:
+        </td>
+        <td>
+            <input type="number" value="{{pr.godina}}">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Smer:
+        </td>
+        <td>
+            <input type="text" value="{{pr.smer}}">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Laboratorija:
+        </td>
+        <td>
+            <input type="text" value="{{pr.laboratorija}}">
+        </td>
+    </tr>
+    <tr>
+        <button (click)='promeni()'>Promeni</button>
+    </tr>
+    
+    
+    
+</table>
+
+
+<br>
+
+<div *ngIf='akt'>
+    <button (click)='activate(1)'>Deaktivirajte Projekte,Labove i ispitna pitanja</button>
+</div>
+<div *ngIf='!akt'>
+    <button (click)='activate(2)'>Aktivirajte Projekte,Labove i ispitna pitanja</button>
+</div>
+
+<br>
+
+Dodajte spisak:
+<table>
+    <tr>
+        <td>
+            Naziv:
+        </td>
+        <td>
+            <input type="text" [(ngModel)]='nazivspiska'>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Termin:
+        </td>
+        <td>
+            Sat  : 
+            <input type="number" [(ngModel)]='sat'>
+        </td>
+        <td>
+            Minut:
+            <input type="number" [(ngModel)]='minut'>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Mesto odrzavanja:
+            
+        </td>
+        <td>
+            <input type="text" [(ngModel)]='mestoodrzavanja'>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Limit:
+            
+        </td>
+        <td>
+            <input type="number" placeholder="opciono" [(ngModel)]='limit'>
+        </td>
+    </tr>
+    <tr>
+        <button (click)='termini()'>Dodaj</button>
+    </tr>
+    
+   
+    
+    
+</table>
+
+
+
+
+<br>
+
+Dodaj vezbe:
+<tr>
+    <input type="file"  (change)="createFormData($event)">
+</tr>
+<button (click)='ubaci(1)'>Dodaj</button>
+<br>
+<br><br>
+
+
+<br>
+
+Dodaj ispitna pitanja:
+<tr>
+    <input type="file"  (change)="createFormData($event)">
+</tr>
+<button (click)='ubaci(3)'>Dodaj</button>
+<br>
+<br><br>
+
+Dodaj predavanja:
+<br>
+<tr>
+    <input type="file"  (change)="createFormData($event)">
+</tr>
+
+<button (click)='ubaci(2)'>Dodaj</button>
+<br><br>
+
+Dodaj projekat:
+<br>
+<tr>
+    <input type="file"  (change)="createFormData($event)">
+</tr>
+Opis:
+<br>
+<input type="text" [(ngModel)]='projekatopis' >
+<br>
+
+<button (click)='dodajProjekat()'>Dodaj</button>
+
+
+<br>
+<br>
+Dodajte obavestenje:
+<br>
+<input type="date" [(ngModel)]='date'>
+<br>
+Naslov:
+<br>
+<input type="text" [(ngModel)]='naslov'>
+<br>
+Tekst:
+<br>
+<textarea  cols="30" rows="3" [(ngModel)]='obaves'></textarea>
+<br>
+<input id="file" type="file" (change)="createForm($event)" multiple>
+<br>
+<button>Dodaj</button>
+
+<br>
+<br>
+Dodajte laboratorisku vezbu:
+
+<br>
+<tr>
+    <input type="file"  (change)="createFormData($event)">
+</tr>
+Opis:
+<br>
+<input type="text" [(ngModel)]='projekatopis' >
+<br>
+
+<button (click)='dodajLab()'>Dodaj</button>
+
+<br>
+<br>
+Dodajte termin:
+<br>Sat  :   
+<input type="number" [(ngModel)]='sat'>
+<br>
+Minut:
+<input type="number" [(ngModel)]='minut'>
+<br>
+<button (click)='termin()'>
+    Dodaj</button>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div *ngIf='ima'>
+
+<h3>Predavanja:</h3>
+
+
+<table>
+    <tr>
+        <td>Materijal:</td>
+        <td>Ime i Prezime profesora</td>
+        <td>Datum:</td>
+    </tr>
+    <tr *ngFor='let pred of this.predavanja'>
+        <td >
+            <a  href="{{pred.url}}" target="{{pred.url}}">
+            {{pred.name}}
+            </a>
+            
+        </td>
+        <p  hidden #box>{{pred.name}}</p>
+        <td >
+            {{pred.ime}} {{pred.prezime}}
+        </td>
+        <td>
+            <!-- {{p.date}} -->
+            
+        </td>
+        <td>
+            <button (click)='izbacifajl(box.textContent)'>Izbrisi</button>
+        </td>
+    </tr>
+</table>
+</div>
+<div *ngIf='ima'>
+<h3>Vezbe:</h3>
+
+
+<table>
+    <tr>
+        <td>Materijal:</td>
+        <td>Ime i Prezime profesora</td>
+        <td>Datum:</td>
+    </tr>
+    <tr *ngFor='let p of this.ispis'>
+        <td >
+            <a  href="{{p.url}}" target="{{p.url}}">
+            {{p.name}}
+            </a>
+            
+        </td>
+        <p  hidden #box>{{p.name}}</p>
+        <td >
+            {{p.ime}} {{p.prezime}}
+        </td>
+        <td>
+            <!-- {{p.date}} -->
+            
+        </td>
+        <td>
+            <button (click)='izbacifajl(box.textContent)'>Izbrisi</button>
+        </td>
+    </tr>
+</table>
+<br>
+
+
+
+</div>
+
+<div *ngIf='ima'>
+    <h3>Ispitna pitanja:</h3>
+    
+    
+    <table>
+        <tr>
+            <td>Ispitna pitanja:</td>
+            <td>Ime i Prezime profesora</td>
+            <td>Datum:</td>
+        </tr>
+        <tr *ngFor='let rok of this.rokovi'>
+            <td >
+                <a  href="{{rok.url}}" target="{{rok.url}}">
+                {{rok.name}}
+                </a>
+                
+            </td>
+            <p  hidden #box>{{rok.name}}</p>
+            <td >
+                {{rok.ime}} {{rok.prezime}}
+            </td>
+            <td>
+                <!-- {{p.date}} -->
+                
+            </td>
+            <td>
+                <button (click)='izbacifajl(box.textContent)'>Izbrisi</button>
+            </td>
+        </tr>
+    </table>
+    <br>
+    
+    
+    
+    </div>
+
+
+<div *ngIf='ima'>
+
+    <div>
+        <h3>Obavestenja</h3>
+
+        <table>
+            <tr>
+                <td>Naslov:</td>
+                <td>Tekst:</td>
+                <td>Datum:</td>
+            </tr>
+        <tr *ngFor='let pi of this.obav'>
+            <td>
+                <a href="http://localhost:4200/obavestenje-edit" (click)='edit(pi)'>{{pi.naslov}}</a>
+                                
+            </td>
+            <p  hidden #box>{{pi.naslov}}</p>
+            <td >
+                {{pi.tekst}}
+            </td>
+            <td>
+                {{pi.datum}}
+            </td>
+            <td >
+                <button (click)='izbaciObavestenje(box.textContent)'>Izbrisi</button>
+            </td>
+            
+        </tr>
+    </table>
+    </div>
+
+</div>
+
+
+<div *ngIf='spisa'>
+
+    <div>
+        <h3>Spiskovi</h3>
+
+        <table>
+            <tr>
+                <td>Naziv:</td>
+                <td>Mesto:</td>
+                <td>Sat:</td>
+                <td>Minut:</td>
+                <td>Limit:</td>
+            </tr>
+        <tr *ngFor='let sp of this.spiskovi'>
+            <td>
+                {{sp.naziv}}
+                                
+            </td>
+            <p  hidden #box>{{sp.naziv}}</p>
+            <td >
+                {{sp.mesto}}
+            </td>
+            <td>
+                {{sp.sat}}
+            </td>
+            <td>
+                {{sp.minut}}
+            </td>
+            <td>
+                {{sp.limit}}
+            </td>
+            <td *ngIf='sp.aktivan==false'>
+                <button (click)='aktiviraj(box.textContent,1)'>Aktiviraj</button>
+            </td>
+            <td *ngIf='sp.aktivan==true'>
+                <button (click)='aktiviraj(box.textContent,2)'>Deaktiviraj</button>
+            </td>
+            
+        </tr>
+    </table>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
